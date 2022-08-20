@@ -2,6 +2,8 @@ import { Switch } from "@headlessui/react";
 import React, { useEffect, useState } from "react";
 
 const DarkModeToggle = () => {
+  // find solution to retrieve state from localstorage
+  // when window is undefined - TODO
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {

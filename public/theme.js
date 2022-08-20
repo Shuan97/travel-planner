@@ -1,6 +1,6 @@
 /**
  * Prevent flickering screen on theme load with Next.js and TailwindCSS
- * https://stackoverflow.com/questions/71277655/prevent-page-flash-in-next-js-12-with-tailwind-css-class-based-dark-mode
+ * @see https://stackoverflow.com/questions/71277655/prevent-page-flash-in-next-js-12-with-tailwind-css-class-based-dark-mode
  */
 (function initTheme() {
   // var theme = localStorage.getItem("theme") || "light";
