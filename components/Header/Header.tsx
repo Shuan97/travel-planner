@@ -6,7 +6,7 @@ type Props = {};
 
 const Header = ({}: Props) => {
   return (
-    <header className='px-4 py-2 bg-blue-600 dark:bg-slate-900'>
+    <header className='px-4 py-2 bg-slate-400 dark:bg-slate-900'>
       <nav className='flex items-center mx-8'>
         {/* just an example - TODO */}
         <Image

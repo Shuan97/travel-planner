@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   return (
     <div
       id='app'
-      className='flex flex-col min-h-screen overflow-hidden bg-slate-700 text-white'
+      className='flex flex-col min-h-screen overflow-hidden bg-white text-charcoal dark:bg-slate-700 dark:text-gainsboro'
     >
       <Head>
         <title>Travel Planner</title>

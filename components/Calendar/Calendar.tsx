@@ -55,37 +55,122 @@ const meetings = [
     name: "Michael Foster",
     imageUrl:
       "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    startDatetime: "2022-05-13T14:00",
-    endDatetime: "2022-05-13T14:30",
+    startDatetime: "2022-08-13T14:00",
+    endDatetime: "2022-08-13T14:30",
+  },
+  {
+    id: 6,
+    name: "Michael Foster",
+    imageUrl:
+      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    startDatetime: "2022-08-13T14:00",
+    endDatetime: "2022-08-13T14:30",
+  },
+  {
+    id: 7,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-17T14:00",
+    endDatetime: "2022-08-17T14:30",
+  },
+  {
+    id: 8,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-18T14:00",
+    endDatetime: "2022-08-20T14:30",
+  },
+  {
+    id: 9,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-18T16:00",
+    endDatetime: "2022-08-20T16:30",
+  },
+  {
+    id: 10,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-20T16:00",
+    endDatetime: "2022-08-20T16:30",
+  },
+  {
+    id: 11,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-20T16:00",
+    endDatetime: "2022-08-20T16:30",
+  },
+  {
+    id: 12,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-20T16:00",
+    endDatetime: "2022-08-20T16:30",
+  },
+  {
+    id: 13,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-20T16:00",
+    endDatetime: "2022-08-20T16:30",
+  },
+  {
+    id: 14,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-20T16:00",
+    endDatetime: "2022-08-20T16:30",
+  },
+  {
+    id: 15,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-20T16:00",
+    endDatetime: "2022-08-20T16:30",
+  },
+  {
+    id: 16,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-20T16:00",
+    endDatetime: "2022-08-20T16:30",
+  },
+  {
+    id: 17,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-20T16:00",
+    endDatetime: "2022-08-20T16:30",
   },
 ];
 
-function classNames(...classes: any) {
+const classNames = (...classes: any): string => {
   return classes.filter(Boolean).join(" ");
-}
+};
 
-export default function Example() {
-  let today = startOfToday();
-  let [selectedDay, setSelectedDay] = useState(today);
-  let [currentMonth, setCurrentMonth] = useState(format(today, "MMM-yyyy"));
-  let firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
+const Calendar = () => {
+  const today = startOfToday();
+  const [selectedDay, setSelectedDay] = useState(today);
+  const [currentMonth, setCurrentMonth] = useState(format(today, "MMM-yyyy"));
+  const firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
 
-  let days = eachDayOfInterval({
+  const days = eachDayOfInterval({
     start: firstDayCurrentMonth,
     end: endOfMonth(firstDayCurrentMonth),
   });
 
   function previousMonth() {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
+    const firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
     setCurrentMonth(format(firstDayNextMonth, "MMM-yyyy"));
   }
 
   function nextMonth() {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
+    const firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
     setCurrentMonth(format(firstDayNextMonth, "MMM-yyyy"));
   }
 
-  let selectedDayMeetings = meetings.filter((meeting) =>
+  const selectedDayMeetings = meetings.filter((meeting) =>
     isSameDay(parseISO(meeting.startDatetime), selectedDay)
   );
 
@@ -95,7 +180,7 @@ export default function Example() {
         <div className='md:grid md:grid-cols-2 md:divide-x md:divide-gray-200'>
           <div className='md:pr-14'>
             <div className='flex items-center'>
-              <h2 className='flex-auto font-semibold text-gray-900'>
+              <h2 className='flex-auto font-semibold text-charcoal dark:text-gainsboro'>
                 {format(firstDayCurrentMonth, "MMMM yyyy")}
               </h2>
               <button
@@ -115,14 +200,14 @@ export default function Example() {
                 <ChevronRightIcon className='w-5 h-5' aria-hidden='true' />
               </button>
             </div>
-            <div className='grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500'>
-              <div>S</div>
-              <div>M</div>
-              <div>T</div>
-              <div>W</div>
-              <div>T</div>
-              <div>F</div>
-              <div>S</div>
+            <div className='grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500 dark:text-gray-400'>
+              <div>Mon</div>
+              <div>Tue</div>
+              <div>Wed</div>
+              <div>Thu</div>
+              <div>Fri</div>
+              <div>Sat</div>
+              <div>Sun</div>
             </div>
             <div className='grid grid-cols-7 mt-2 text-sm'>
               {days.map((day: any, dayIdx: number) => (
@@ -144,7 +229,7 @@ export default function Example() {
                       !isEqual(day, selectedDay) &&
                         !isToday(day) &&
                         isSameMonth(day, firstDayCurrentMonth) &&
-                        "text-gray-900",
+                        "",
                       !isEqual(day, selectedDay) &&
                         !isToday(day) &&
                         !isSameMonth(day, firstDayCurrentMonth) &&
@@ -152,11 +237,17 @@ export default function Example() {
                       isEqual(day, selectedDay) && isToday(day) && "bg-red-500",
                       isEqual(day, selectedDay) &&
                         !isToday(day) &&
-                        "bg-gray-900",
-                      !isEqual(day, selectedDay) && "hover:bg-gray-200",
+                        "bg-slate-400 dark:bg-gray-900",
+                      !isEqual(day, selectedDay) &&
+                        "hover:bg-slate-200 dark:hover:bg-slate-600",
                       (isEqual(day, selectedDay) || isToday(day)) &&
                         "font-semibold",
-                      "mx-auto flex h-8 w-8 items-center justify-center rounded-full"
+                      meetings.some(
+                        (meeting) =>
+                          isSameDay(parseISO(meeting.startDatetime), day) &&
+                          meeting.name === "Jarek Matura"
+                      ) && "bg-green-400 dark:bg-green-800",
+                      "mx-auto flex h-10 w-10 items-center justify-center rounded-full"
                     )}
                   >
                     <time dateTime={format(day, "yyyy-MM-dd")}>
@@ -164,25 +255,40 @@ export default function Example() {
                     </time>
                   </button>
 
-                  <div className='w-1 h-1 mx-auto mt-1'>
-                    {meetings.some((meeting) =>
+                  <div className='flex justify-center flex-wrap space-x-px mt-1'>
+                    {/* {meetings.some((meeting) =>
                       isSameDay(parseISO(meeting.startDatetime), day)
                     ) && (
-                      <div className='w-1 h-1 rounded-full bg-sky-500'></div>
-                    )}
+                      <>
+                        <div className='w-1 h-1 rounded-full bg-sky-500'></div>
+                        <div className='w-1 h-1 rounded-full bg-sky-500'></div>
+                        <div className='w-1 h-1 rounded-full bg-sky-500'></div>
+                        <div className='w-1 h-1 rounded-full bg-sky-500'></div>
+                        <div className='w-1 h-1 rounded-full bg-sky-500'></div>
+                      </>
+                    )} */}
+                    {meetings.map((meeting) => {
+                      if (isSameDay(parseISO(meeting.startDatetime), day))
+                        return (
+                          <div
+                            key={meeting.id}
+                            className='w-1.5 h-1.5 rounded-full bg-sky-500 hover:bg-sky-700'
+                          ></div>
+                        );
+                    })}
                   </div>
                 </div>
               ))}
             </div>
           </div>
           <section className='mt-12 md:mt-0 md:pl-14'>
-            <h2 className='font-semibold text-gray-900'>
+            <h2 className='font-semibold text-charcoal dark:text-gainsboro'>
               Schedule for{" "}
               <time dateTime={format(selectedDay, "yyyy-MM-dd")}>
                 {format(selectedDay, "MMM dd, yyy")}
               </time>
             </h2>
-            <ol className='mt-4 space-y-1 text-sm leading-6 text-gray-500'>
+            <ol className='mt-4 space-y-1 text-sm leading-6 text-gray-500 dark:text-gray-400'>
               {selectedDayMeetings.length > 0 ? (
                 selectedDayMeetings.map((meeting) => (
                   <Meeting meeting={meeting} key={meeting.id} />
@@ -196,21 +302,21 @@ export default function Example() {
       </div>
     </div>
   );
-}
+};
 
 function Meeting({ meeting }: any) {
-  let startDateTime = parseISO(meeting.startDatetime);
-  let endDateTime = parseISO(meeting.endDatetime);
+  const startDateTime = parseISO(meeting.startDatetime);
+  const endDateTime = parseISO(meeting.endDatetime);
 
   return (
-    <li className='flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100'>
+    <li className='flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-slate-200 dark:hover:bg-slate-800'>
       <img
         src={meeting.imageUrl}
         alt=''
         className='flex-none w-10 h-10 rounded-full'
       />
       <div className='flex-auto'>
-        <p className='text-gray-900'>{meeting.name}</p>
+        <p className='text-charcoal dark:text-gainsboro'>{meeting.name}</p>
         <p className='mt-0.5'>
           <time dateTime={meeting.startDatetime}>
             {format(startDateTime, "h:mm a")}
@@ -277,12 +383,14 @@ function Meeting({ meeting }: any) {
   );
 }
 
-let colStartClasses = [
-  "",
+const colStartClasses = [
+  "col-start-7",
+  "col-start-1",
   "col-start-2",
   "col-start-3",
   "col-start-4",
   "col-start-5",
   "col-start-6",
-  "col-start-7",
 ];
+
+export default Calendar;
