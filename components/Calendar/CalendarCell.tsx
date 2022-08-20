@@ -10,6 +10,16 @@ import {
 import React from "react";
 import { classNames } from "../../utils/common";
 
+const colStartClasses = [
+  "col-start-7",
+  "col-start-1",
+  "col-start-2",
+  "col-start-3",
+  "col-start-4",
+  "col-start-5",
+  "col-start-6",
+];
+
 const CalendarCell = ({
   meetings,
   day,
@@ -74,15 +84,5 @@ const CalendarCell = ({
     </div>
   );
 };
-
-const colStartClasses = [
-  "col-start-7",
-  "col-start-1",
-  "col-start-2",
-  "col-start-3",
-  "col-start-4",
-  "col-start-5",
-  "col-start-6",
-];
 
 export default CalendarCell;

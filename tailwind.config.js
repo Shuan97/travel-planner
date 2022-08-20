@@ -13,6 +13,9 @@ module.exports = {
         charcoal: "#333",
         gainsboro: "#dcdcdc",
       },
+      fontFamily: {
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      },
     },
   },
   plugins: [],
