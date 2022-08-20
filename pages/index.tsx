@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-
-const AUTHOR_NAME = "Jarosław Matura";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import Main from "../components/Main/Main";
 
 const Home: NextPage = () => {
   return (
@@ -15,26 +16,10 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <header className='bg-slate-900'>
-        <div className='container mx-auto py-4'>
-          <h1 className='text-lg'>Hello World!</h1>
-        </div>
-      </header>
-      <main role='main' className='container mx-auto py-4'>
-        main
-      </main>
-
-      <footer className='mt-auto z-50 bg-slate-900'>
-        <div className='container mx-auto px-8 flex flex-col items-center py-8 border-t border-slate-700'>
-          <div className='mx-auto'>
-            Copyright &copy;{" "}
-            {new Date().getFullYear() === 2022
-              ? "2022"
-              : `2022 - ${new Date().getFullYear()}`}{" "}
-            {AUTHOR_NAME}
-          </div>
-        </div>
-      </footer>
+      {/* application */}
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 };

@@ -2,6 +2,27 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  images: {
+    domains: ["images.pexels.com"],
+  },
+};
 
-module.exports = nextConfig
+const webpackConfig = {
+  // webpack(config) {
+  //   config.module.rules.push({
+  //     test: /\.svg$/,
+  //     issuer: {
+  //       // test: /\.(js|ts)x?$/,
+  //       // for webpack 5 use
+  //       and: [/\.(js|ts)x?$/],
+  //     },
+  //     use: ["@svgr/webpack"],
+  //   });
+  //   return config;
+  // },
+};
+
+module.exports = {
+  ...nextConfig,
+  ...webpackConfig,
+};

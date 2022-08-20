@@ -1,0 +1,6 @@
+- Typescript
+- GraphQL
+- Redux
+- Nest.js
+- db
+- Tailwind Styled Components ?
