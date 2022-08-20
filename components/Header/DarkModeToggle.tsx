@@ -35,9 +35,11 @@ const DarkModeToggle = () => {
       <span className='sr-only'>Dark mode</span>
       <span
         className={`${
-          enabled ? "translate-x-[26px]" : "translate-x-0.5"
-        } transition-all duration-300 inline-block h-5 w-5 transform rounded-full bg-gray-200`}
-      />
+          enabled ? "translate-x-6" : "translate-x-0"
+        } transition-all duration-300 inline-block h-6 w-6 transform rounded-full bg-gray-200`}
+      >
+        {enabled ? "🌛" : "🌞"}
+      </span>
     </Switch>
   );
 };

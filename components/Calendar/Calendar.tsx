@@ -141,6 +141,13 @@ const meetings = [
     startDatetime: "2022-08-20T16:00",
     endDatetime: "2022-08-20T16:30",
   },
+  {
+    id: 18,
+    name: "Jarek Matura",
+    imageUrl: "https://avatars.githubusercontent.com/u/35654946?v=4",
+    startDatetime: "2022-08-21T16:00",
+    endDatetime: "2022-08-21T16:30",
+  },
 ];
 
 const Calendar = () => {
