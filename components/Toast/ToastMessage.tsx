@@ -39,7 +39,7 @@ const displayIcon = (type: string) => {
 
 const options = (type: string) => {
   const className =
-    "font-sans bg-gray-100 dark:bg-gray-600 dark:text-gainsboro dark:fill-gainsboro hover:fill-charcoal transition-all transform hover:translate-y-1";
+    "font-sans bg-gray-100 dark:bg-slate-800 dark:text-gainsboro dark:fill-gainsboro hover:fill-charcoal rounded-lg transition-all transform hover:translate-y-1";
   switch (type) {
     case "success":
       return {

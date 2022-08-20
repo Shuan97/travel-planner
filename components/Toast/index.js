@@ -1,3 +1,3 @@
-import ToastMessage from "./index.tsx";
+import ToastMessage from "./ToastMessage";
 
 export default ToastMessage;

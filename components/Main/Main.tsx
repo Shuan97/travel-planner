@@ -1,10 +1,12 @@
 import React from "react";
-import Calendar from "../Calendar/Calendar";
+interface Props {
+  children: JSX.Element[] | JSX.Element;
+}
 
-const Main = () => {
+const Main = ({ children }: Props) => {
   return (
     <main role='main' className='container mx-auto py-4'>
-      <Calendar />
+      {children}
     </main>
   );
 };

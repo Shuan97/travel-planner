@@ -11,6 +11,10 @@
   .flex-center {
     @apply flex justify-center items-center;
   }
+
+  .svg-icon {
+    @apply h-6 w-6 text-charcoal dark:text-gainsboro hover:text-slate-600 dark:hover:text-slate-400 cursor-pointer transition-all;
+  }
 }
 
 @layer utilities {
