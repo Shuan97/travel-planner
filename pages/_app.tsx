@@ -11,8 +11,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     toast({ type: "info", message: "Hello world!", title: "Title" });
     toast({ type: "success", message: "Hello world!" });
-    toast({ type: "warning", message: "Hello world!" });
-    toast({ type: "error", message: "Hello world!" });
+    toast({
+      type: "warning",
+      message: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: "Custom title",
+    });
+    toast({ type: "error", message: "[Error]: Hello world!" });
   }, []);
 
   return (

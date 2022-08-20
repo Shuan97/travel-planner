@@ -35,8 +35,8 @@ const Header = ({}: Props) => {
             onClick={() =>
               ToastMessage({
                 type: "success",
-                message: "🧡",
-                title: "Heart for you!",
+                message: "[Message]: 🧡",
+                title: "[Title]: Heart for you!",
               })
             }
           />
