@@ -28,8 +28,7 @@ const Header = ({}: Props) => {
             <h1 className='text-lg mx-2'>Travel Planner</h1>
           </div>
         </Link>
-        <div className='flex-1'></div>
-        <div className='flex space-x-4'>
+        <div className='flex space-x-4 ml-auto'>
           <ProfileDropdown />
           <HeartIcon
             className='svg-icon'

@@ -7,12 +7,10 @@ import { classNames } from "../../utils/common";
 const ProfileDropdown = () => {
   return (
     <Menu as='div' className='relative'>
-      <div>
-        <Menu.Button className='flex hover:text-gray-600'>
-          <span className='sr-only'>Open profile options</span>
-          <UserCircleIcon className='svg-icon' aria-hidden='true' />
-        </Menu.Button>
-      </div>
+      <Menu.Button className='flex hover:text-gray-600'>
+        <span className='sr-only'>Open profile options</span>
+        <UserCircleIcon className='svg-icon' aria-hidden='true' />
+      </Menu.Button>
 
       <Transition
         as={Fragment}
@@ -31,7 +29,7 @@ const ProfileDropdown = () => {
                   <div
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block px-4 py-2 text-sm"
+                      "block px-4 py-2 text-sm cursor-pointer"
                     )}
                   >
                     Profile
@@ -45,7 +43,7 @@ const ProfileDropdown = () => {
                   <div
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block px-4 py-2 text-sm"
+                      "block px-4 py-2 text-sm cursor-pointer"
                     )}
                   >
                     Dashboard
@@ -59,7 +57,7 @@ const ProfileDropdown = () => {
                   <div
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block px-4 py-2 text-sm"
+                      "block px-4 py-2 text-sm cursor-pointer"
                     )}
                   >
                     Settings
@@ -75,7 +73,7 @@ const ProfileDropdown = () => {
                   href='#'
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
+                    "block px-4 py-2 text-sm cursor-pointer"
                   )}
                 >
                   Sign out

@@ -12,7 +12,7 @@ import {
   startOfToday,
 } from "date-fns";
 import { Fragment, useState } from "react";
-import { classNames } from "../../utils/common";
+import { classNames } from "@/utils/common";
 import { default as Cell } from "./CalendarCell";
 
 const meetings = [
