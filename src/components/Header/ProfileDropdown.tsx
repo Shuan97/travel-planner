@@ -1,5 +1,10 @@
 import { Menu, Transition } from "@headlessui/react";
-import { UserCircleIcon } from "@heroicons/react/outline";
+import {
+  CogIcon,
+  CubeIcon,
+  LogoutIcon,
+  UserCircleIcon,
+} from "@heroicons/react/outline";
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { classNames } from "../../utils/common";
@@ -21,63 +26,50 @@ const ProfileDropdown = () => {
         leaveFrom='transform opacity-100 scale-100'
         leaveTo='transform opacity-0 scale-75'
       >
-        <Menu.Items className='absolute right-0 z-10 mt-2 origin-top-right divide-y divide-gray-200 bg-white rounded-md shadow-lg w-36 ring-1 ring-black ring-opacity-5 focus:outline-none'>
-          <div className='py-1'>
+        <Menu.Items className='absolute right-0 z-10 mt-2 origin-top-right divide-y divide-gray-200 bg-white rounded-md shadow-lg w-48 ring-1 ring-black ring-opacity-5 focus:outline-none'>
+          <div className='px-1 py-1'>
             <Link href='/profile'>
               <Menu.Item>
                 {({ active }) => (
-                  <div
-                    className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block px-4 py-2 text-sm cursor-pointer"
-                    )}
-                  >
-                    Profile
-                  </div>
+                  <ItemContent
+                    active={active}
+                    icon={<UserCircleIcon />}
+                    label='Profile'
+                  />
                 )}
               </Menu.Item>
             </Link>
             <Link href='/dashboard'>
               <Menu.Item>
                 {({ active }) => (
-                  <div
-                    className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block px-4 py-2 text-sm cursor-pointer"
-                    )}
-                  >
-                    Dashboard
-                  </div>
+                  <ItemContent
+                    active={active}
+                    icon={<CubeIcon />}
+                    label='Dashboard'
+                  />
                 )}
               </Menu.Item>
             </Link>
             <Link href='/profile/settings'>
               <Menu.Item>
                 {({ active }) => (
-                  <div
-                    className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block px-4 py-2 text-sm cursor-pointer"
-                    )}
-                  >
-                    Settings
-                  </div>
+                  <ItemContent
+                    active={active}
+                    icon={<CogIcon />}
+                    label='Settings'
+                  />
                 )}
               </Menu.Item>
             </Link>
           </div>
-          <div className='py-1'>
+          <div className='px-1 py-1'>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href='#'
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm cursor-pointer"
-                  )}
-                >
-                  Sign out
-                </a>
+                <ItemContent
+                  active={active}
+                  icon={<LogoutIcon />}
+                  label='Sign Out'
+                />
               )}
             </Menu.Item>
           </div>
@@ -86,5 +78,32 @@ const ProfileDropdown = () => {
     </Menu>
   );
 };
+
+interface ItemContentProps {
+  active: boolean;
+  children?: React.ReactNode;
+  icon: JSX.Element;
+  label: string;
+}
+
+const ItemContent = ({
+  active,
+  children,
+  icon,
+  label,
+  ...props
+}: ItemContentProps) => (
+  <div
+    {...props}
+    className={classNames(
+      active ? "bg-slate-200 text-teal-700" : "text-charcoal",
+      "group flex w-full items-center rounded-md px-2 py-2 text-sm cursor-pointer"
+    )}
+  >
+    {React.cloneElement(icon, { className: "h-6 w-6 mr-2" })}
+    {label}
+    {children}
+  </div>
+);
 
 export default ProfileDropdown;

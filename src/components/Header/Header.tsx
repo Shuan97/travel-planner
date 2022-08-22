@@ -1,8 +1,4 @@
-import {
-  HeartIcon,
-  LogoutIcon,
-  UserCircleIcon,
-} from "@heroicons/react/outline";
+import { HeartIcon, LogoutIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

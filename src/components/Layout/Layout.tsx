@@ -11,7 +11,7 @@ const Layout = ({ children }: Props) => {
   return (
     <div
       id='app'
-      className='flex flex-col min-h-screen overflow-hidden bg-white text-charcoal dark:bg-slate-700 dark:text-gainsboro'
+      className='flex flex-col min-h-screen overflow-hidden bg-gray-100 text-charcoal dark:bg-slate-700 dark:text-gainsboro'
     >
       <Header />
       <Main>{children}</Main>
