@@ -1,12 +1,13 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
+import { NextPageWithLayout } from "../_app";
 
-const ProfileSettings = () => {
-  return (
-    <Layout>
-      <div>Profile settings</div>
-    </Layout>
-  );
+const ProfileSettingsPage: NextPageWithLayout = () => {
+  return <div>Profile settings</div>;
 };
 
-export default ProfileSettings;
+ProfileSettingsPage.getLayout = function getLayout(page: React.ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default ProfileSettingsPage;

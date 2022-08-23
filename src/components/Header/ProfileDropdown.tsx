@@ -6,8 +6,8 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/outline";
 import Link from "next/link";
-import React, { Fragment } from "react";
-import { classNames } from "../../utils/common";
+import React, { forwardRef, Fragment } from "react";
+import { classNames } from "@/utils/common";
 
 const ProfileDropdown = () => {
   return (
@@ -34,7 +34,7 @@ const ProfileDropdown = () => {
                   <ItemContent
                     active={active}
                     icon={<UserCircleIcon />}
-                    label='Profile'
+                    label='Your Profile'
                   />
                 )}
               </Menu.Item>
@@ -63,15 +63,17 @@ const ProfileDropdown = () => {
             </Link>
           </div>
           <div className='px-1 py-1'>
-            <Menu.Item>
-              {({ active }) => (
-                <ItemContent
-                  active={active}
-                  icon={<LogoutIcon />}
-                  label='Sign Out'
-                />
-              )}
-            </Menu.Item>
+            <Link href='/logout'>
+              <Menu.Item>
+                {({ active }) => (
+                  <ItemContent
+                    active={active}
+                    icon={<LogoutIcon />}
+                    label='Sign Out'
+                  />
+                )}
+              </Menu.Item>
+            </Link>
           </div>
         </Menu.Items>
       </Transition>
@@ -86,24 +88,28 @@ interface ItemContentProps {
   label: string;
 }
 
-const ItemContent = ({
-  active,
-  children,
-  icon,
-  label,
-  ...props
-}: ItemContentProps) => (
-  <div
-    {...props}
-    className={classNames(
-      active ? "bg-slate-200 text-teal-700" : "text-charcoal",
-      "group flex w-full items-center rounded-md px-2 py-2 text-sm cursor-pointer"
-    )}
-  >
-    {React.cloneElement(icon, { className: "h-6 w-6 mr-2" })}
-    {label}
-    {children}
-  </div>
+const ItemContent = forwardRef(
+  ({ active, children, icon, label, ...rest }: ItemContentProps, ref: any) => {
+    return (
+      <div
+        ref={ref}
+        {...rest}
+        className={classNames(
+          active ? "bg-slate-200 text-teal-700" : "text-charcoal",
+          "group flex w-full items-center rounded-md text-sm px-2 py-2 cursor-pointer"
+        )}
+      >
+        {React.cloneElement(icon, {
+          className: "h-6 w-6 mr-2",
+          "aria-hidden": "true",
+        })}
+        {label}
+        {children}
+      </div>
+    );
+  }
 );
+
+ItemContent.displayName = "ItemContent";
 
 export default ProfileDropdown;

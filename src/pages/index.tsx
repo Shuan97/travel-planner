@@ -1,14 +1,18 @@
-import type { NextPage } from "next";
 import React from "react";
 import Calendar from "../components/Calendar/Calendar";
 import Layout from "../components/Layout/Layout";
+import { NextPageWithLayout } from "./_app";
 
-const Home: NextPage = () => {
+const HomePage: NextPageWithLayout = () => {
+  return <Calendar />;
+};
+
+HomePage.getLayout = function getLayout(page: React.ReactElement) {
   return (
     <Layout>
-      <Calendar />
+      <Layout.Main>{page}</Layout.Main>
     </Layout>
   );
 };
 
-export default Home;
+export default HomePage;

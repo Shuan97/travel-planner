@@ -5,7 +5,7 @@ interface Props {
 
 const Main = ({ children }: Props) => {
   return (
-    <main role='main' className='container mx-auto py-4'>
+    <main role='main' className='relative container mx-auto py-4'>
       {children}
     </main>
   );

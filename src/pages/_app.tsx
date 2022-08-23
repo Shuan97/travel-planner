@@ -1,14 +1,23 @@
 /* eslint-disable @next/next/no-before-interactive-script-outside-document */
+import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
-import { useEffect } from "react";
+import { ReactElement, ReactNode, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import toast from "../components/Toast";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // useEffect(() => {
   //   toast({ type: "info", message: "Hello world!", title: "Title" });
   //   toast({ type: "success", message: "Hello world!" });
@@ -20,6 +29,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   //   toast({ type: "error", message: "[Error]: Hello world!" });
   // }, []);
 
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   return (
     <>
       <Head>
@@ -28,7 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Script src='/theme.js' strategy='beforeInteractive' />
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
       <ToastContainer
         position='top-right'
         autoClose={3000}

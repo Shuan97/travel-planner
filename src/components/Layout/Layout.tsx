@@ -14,10 +14,12 @@ const Layout = ({ children }: Props) => {
       className='flex flex-col min-h-screen overflow-hidden bg-gray-100 text-charcoal dark:bg-slate-700 dark:text-gainsboro'
     >
       <Header />
-      <Main>{children}</Main>
+      {children}
       <Footer />
     </div>
   );
 };
+
+Layout.Main = Main;
 
 export default Layout;
