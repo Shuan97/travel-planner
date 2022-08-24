@@ -6,6 +6,7 @@
 - Nest.js
 - db
 - Tailwind Styled Components ?
+- Nookies for dark mode - [https://github.com/maticzav/nookies]
 
 ## Timesheet
 

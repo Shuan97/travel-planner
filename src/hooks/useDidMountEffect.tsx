@@ -1,6 +1,13 @@
 import React, { useEffect, useRef } from "react";
 
-const useDidMountEffect = (func: any, deps: any) => {
+/**
+ * @param func Function to be executed after initial render
+ * @param deps If present, effect will only activate if the values in the list change.
+ */
+const useDidMountEffect = (
+  func: React.EffectCallback,
+  deps?: React.DependencyList | undefined
+) => {
   const didMount = useRef(false);
 
   useEffect(() => {

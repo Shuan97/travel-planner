@@ -13,6 +13,9 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
+      gridTemplateColumns: {
+        profile: "auto, minmax(0, 1fr)",
+      },
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],
